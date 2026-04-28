@@ -69,7 +69,7 @@
   function uniqueId(prefix) {
     var id = ++uniqueIdCounter;
 
-    return String(prefix === null ? 'rmjs-' : prefix) + id;
+    return String((prefix === null || prefix === undefined) ? 'rmjs-' : prefix) + id;
   }
 
   function setBoxHeights(element) {
@@ -312,7 +312,7 @@
 
   $.fn.readmore = function(options) {
     var args = arguments,
-        selector = this.selector;
+        selector = this.selector || options.selector;
 
     options = options || {};
 
